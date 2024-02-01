@@ -43,12 +43,13 @@ taskInputElem.addEventListener("keypress", function (e) {
 // ADD NEW TASK FUNCTION
 function addNewTask() {
     // console.log(taskInputElem.value)
+    let newId = tasks.length == 0 ? 1 : tasks[tasks.length - 1].id + 1;
     if (taskInputElem.value === "") {
         alert("Geben Sie bitte einen Taskname ein...")
     } else {
 
         if (!isEditTask) {
-            tasks.push({ id: tasks[tasks.length - 1].id + 1, taskName: taskInputElem.value });
+            tasks.push({ id: newId, taskName: taskInputElem.value });
         } else {
             // Bearbeiten - Aktualisierung Task: Wenn isEditTask true, dann bearbeiten wir Task.
 
